@@ -23,7 +23,7 @@
   <parent>
     <groupId>org.hawkular</groupId>
     <artifactId>hawkular-parent</artifactId>
-    <version>27</version>
+    <version>30</version>
   </parent>
 
   <groupId>org.hawkular.alerts</groupId>
@@ -88,21 +88,21 @@
     <version.org.codehaus.groovy.maven>1.0</version.org.codehaus.groovy.maven>
     <version.org.drools>6.3.0.Final</version.org.drools>
     <version.org.freemarker>2.3.17</version.org.freemarker>
-    <version.org.hawkular>1.0.0.Alpha6</version.org.hawkular>
-    <version.org.hawkular.accounts>2.0.7.Final-SRC-revision-ec7cc32edfed83bea7691b03ef3e7bcc5a3823da</version.org.hawkular.accounts>
-    <version.org.hawkular.bus>0.7.3.Final-SRC-revision-1af5bac4e32e26804b39ed6c6aa8fec66fdd2cf0</version.org.hawkular.bus>
-    <version.org.hawkular.command-gateway>0.10.4.Final-SRC-revision-026a46590f53179096f794657d9c6b813313f297</version.org.hawkular.command-gateway>
-    <version.org.hawkular.commons>0.2.5.Final-SRC-revision-20319242f7f2c6045763758cb4c7ea7bb5e4576f</version.org.hawkular.commons>
-    <version.org.hawkular.inventory>0.8.0-Final</version.org.hawkular.inventory>
-    <version.org.hawkular.metrics>0.6.0.Final</version.org.hawkular.metrics>
-    <version.org.hawkular.nest>${version.org.hawkular.bus}</version.org.hawkular.nest>
+    <!-- FIXME delete this line as Alerts do not depend on Hawkular anymore <version.org.hawkular>1.0.0.Alpha6</version.org.hawkular> -->
+    <version.org.hawkular.accounts>2.0.7.Final</version.org.hawkular.accounts>
+    <!-- FIXME delete this line as Bus has moved to commons <version.org.hawkular.bus>0.7.3.Final-SRC-revision-1af5bac4e32e26804b39ed6c6aa8fec66fdd2cf0</version.org.hawkular.bus> -->
+    <version.org.hawkular.command-gateway>0.10.6.Final-SRC-revision-0675a49ad0cdb0befb0f0154ab5ca93d8186d4a7</version.org.hawkular.command-gateway>
+    <version.org.hawkular.commons>0.3.0.Final</version.org.hawkular.commons>
+    <version.org.hawkular.inventory>0.11.0.Final-SRC-revision-fb69af56e0c52b91d442758e74ad03eb77d12985</version.org.hawkular.inventory>
+    <version.org.hawkular.metrics>0.10.0.Final</version.org.hawkular.metrics>
+    <!-- FIXME delete this line as Nest has moved to commons <version.org.hawkular.nest>${version.org.hawkular.bus}</version.org.hawkular.nest> -->
     <version.org.infinispan.wildfly>7.2.3.Final</version.org.infinispan.wildfly>
     <version.org.infinispan.eap64>5.2.9.Final</version.org.infinispan.eap64>
     <version.org.jboss.jboss-vfs>3.2.10.Final</version.org.jboss.jboss-vfs>
     <version.org.schwering>2.0.0.Alpha3</version.org.schwering>
     <version.org.slf4j>1.7.2</version.org.slf4j>
     <version.org.yaml>1.11</version.org.yaml>
-    <version.org.wildfly>9.0.1.Final</version.org.wildfly>
+    <!-- FIXME delete this line as we now consume WF via Accounts feature pack <version.org.wildfly>9.0.1.Final</version.org.wildfly> -->
   </properties>
 
   <dependencyManagement>
@@ -110,7 +110,7 @@
 
       <dependency>
         <groupId>org.wildfly.bom</groupId>
-        <artifactId>jboss-javaee-7.0-wildfly</artifactId>
+        <artifactId>wildfly-javaee7</artifactId>
         <version>${version.org.wildfly}</version>
         <type>pom</type>
         <scope>import</scope>
@@ -118,17 +118,5 @@
 
     </dependencies>
   </dependencyManagement>
-
-  <build>
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <groupId>org.wildfly.plugins</groupId>
-          <artifactId>wildfly-maven-plugin</artifactId>
-          <version>1.1.0.Alpha2</version>
-        </plugin>
-      </plugins>
-    </pluginManagement>
-  </build>
 
 </project>
